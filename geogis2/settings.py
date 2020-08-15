@@ -107,7 +107,7 @@ DATABASES={
         'USER':'fumitoshi',
         'HOST':'localhost',
         'PASSWORD':'fumi0306',
-
+        'PORT':'5432',
     }
 }
 
