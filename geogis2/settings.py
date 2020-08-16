@@ -104,7 +104,7 @@ DATABASES={
     'default':{
         'ENGINE':'django.contrib.gis.db.backends.postgis',
         'NAME':'geodjangodb3',
-        'USER':'fumitoshi',
+        'USER':'postgres',
         'HOST':'localhost',
         'PASSWORD':'fumi0306',
         'PORT':'5432',
