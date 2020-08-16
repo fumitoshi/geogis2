@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'geogis2.wsgi.application'
 DATABASES={
     'default':{
         'ENGINE':'django.contrib.gis.db.backends.postgis',
-        'NAME':'geodjangodb3',
+        'NAME':'geodjangodb3',#fumitoshi
         'USER':'postgres',
         'HOST':'localhost',
         'PASSWORD':'fumi0306',
