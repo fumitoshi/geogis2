@@ -40,8 +40,8 @@ SECRET_KEY = '!t7o14(2!oxx(t#v*&ge4fcw0$-)bx$!heptj*fwo+$_&=5nnr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['35.194.42.99']
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','35.194.42.99']
+STATIC_ROOT="/home/fumijamu1020/geogis2/world/static"
 
 # Application definition
 
@@ -148,12 +148,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [                  # <-- ここから
-    os.path.join(BASE_DIR, 'static'),
-]
+# STATICFILES_DIRS = [                  # <-- ここから
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
