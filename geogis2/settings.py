@@ -41,7 +41,8 @@ SECRET_KEY = '!t7o14(2!oxx(t#v*&ge4fcw0$-)bx$!heptj*fwo+$_&=5nnr'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','35.194.42.99']
-STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+STATIC_ROOT=os.path.join(BASE_DIR, 'static') #\Users\fumi1\Desktop\geogis2\static
+# print(STATIC_ROOT)
 STATIC_URL = '/static/'
 # Application definition
 
