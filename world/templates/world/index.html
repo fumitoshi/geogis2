@@ -4,7 +4,10 @@
   <meta charset='utf-8'>
   <title></title>
   <head>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVsqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin=""/> -->
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="crossorigin=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'world/dist/leaflet.ajax.js' %}"></script>
@@ -49,7 +52,7 @@
       
       // ロード時に都道府県の情報をゲットする関数
       function getprefecture(){
-        var get_pref_url="http://127.0.0.1:8000/world/geojson/get_pref";
+        var get_pref_url="http://35.194.42.99/world/geojson/get_pref";
         $.getJSON(get_pref_url,function(arg){
           appendprefoption(arg)
         })
@@ -69,7 +72,7 @@ window.onload=getprefecture();
 
       // 市区町村の情報をゲットする関数
       function getcity(id){
-        var get_city_url="http://127.0.0.1:8000/world/geojson/get_city/"+id;
+        var get_city_url="http://35.194.42.99/world/geojson/get_city/"+id;
         $("#city_choice").empty();
         $.getJSON(get_city_url,function(arg){
           appendcityoption(arg)
@@ -92,14 +95,14 @@ window.onload=getprefecture();
         // $("#city_choice").empty();
         if(area=='pref'){
           var id=id
-          var area_selected_url="http://127.0.0.1:8000/world/geojson/pref/"+id
+          var area_selected_url="http://35.194.42.99/world/geojson/pref/"+id
           getcity(id);
           // mymap.removeLayer(plot);
           // console.log(area,id)
         }
         else if(area=='city'){
           var id=id
-          var area_selected_url="http://127.0.0.1:8000/world/geojson/city/"+id
+          var area_selected_url="http://35.194.42.99/world/geojson/city/"+id
           // console.log(id);
           // mymap.removeLayer(plot);
         }
@@ -125,18 +128,18 @@ window.onload=getprefecture();
       // 避難所の詳細をリンク付する関数
       function show_facility_detail(id){
         $("#facilitydetail").empty();
-        var facility_url="http://127.0.0.1:8000/world/geojson/" + id;
+        var facility_url="http://35.194.42.99/world/geojson/" + id;
         $.getJSON(facility_url,function(data){
           var detailrow="<dt class='col-sm-2' align='right'>名称</dt><dd class='col-sm-10' align='left'>" + data[0].evacuation_site + "</dd>"
           detailrow += "<dt class='col-sm-2' align='right'>所在地</dt><dd class='col-sm-10' align='left'>" + data[0].location + "</dd>"
-          detailrow += "<div><a href=http://127.0.0.1:8000/world/form/"+id+">" +'入力'+ "</a></div>"
+          detailrow += "<div><a href=http://35.194.42.99/world/form/"+id+">" +'入力'+ "</a></div>"
           $(detailrow).appendTo('#facilitydetail');
         });
         show_form_detail(id);
       }
 
       function show_form_detail(id){
-        var facility_form_url="http://127.0.0.1:8000/world/geojson/form/" + id;
+        var facility_form_url="http://35.194.42.99/geojson/form/" + id;
         $.getJSON(facility_form_url,function(arg){
           $.each(arg,function(i,data){
             // console.log(data);
