@@ -58,7 +58,7 @@
       
       // ロード時に都道府県の情報をゲットする関数
       function getprefecture(){
-        var get_pref_url="http://35.226.2.14/world/geojson/get_pref";
+        var get_pref_url="http://35.194.42.99/world/geojson/get_pref";
         $.getJSON(get_pref_url,function(arg){
           appendprefoption(arg)
         })
@@ -78,7 +78,7 @@ window.onload=getprefecture();
 
       // 市区町村の情報をゲットする関数
       function getcity(id){
-        var get_city_url="http://35.226.2.14/world/geojson/get_city/"+id;
+        var get_city_url="http://35.194.42.99/world/geojson/get_city/"+id;
         $("#city_choice").empty();
         $.getJSON(get_city_url,function(arg){
           appendcityoption(arg)
@@ -101,14 +101,14 @@ window.onload=getprefecture();
         // $("#city_choice").empty();
         if(area=='pref'){
           var id=id
-          var area_selected_url="http://35.226.2.14/world/geojson/pref/"+id
+          var area_selected_url="http://35.194.42.99/world/geojson/pref/"+id
           getcity(id);
           // mymap.removeLayer(plot);
           // console.log(area,id)
         }
         else if(area=='city'){
           var id=id
-          var area_selected_url="http://35.226.2.14/world/geojson/city/"+id
+          var area_selected_url="http://35.194.42.99/world/geojson/city/"+id
           // console.log(id);
           // mymap.removeLayer(plot);
         }
@@ -134,18 +134,18 @@ window.onload=getprefecture();
       // 避難所の詳細をリンク付する関数
       function show_facility_detail(id){
         $("#facilitydetail").empty();
-        var facility_url="http://35.226.2.14/world/geojson/" + id;
+        var facility_url="http://35.194.42.99/world/geojson/" + id;
         $.getJSON(facility_url,function(data){
           var detailrow="<dt class='col-sm-2' align='right'>名称</dt><dd class='col-sm-10' align='left'>" + data[0].evacuation_site + "</dd>"
           detailrow += "<dt class='col-sm-2' align='right'>所在地</dt><dd class='col-sm-10' align='left'>" + data[0].location + "</dd>"
-          detailrow += "<div><a href=http://35.226.2.14/world/form/"+id+">" +'入力'+ "</a></div>"
+          detailrow += "<div><a href=http://35.194.42.99/world/form/"+id+">" +'入力'+ "</a></div>"
           $(detailrow).appendTo('#facilitydetail');
         });
         show_form_detail(id);
       }
 
       function show_form_detail(id){
-        var facility_form_url="http://35.226.2.14/geojson/form/" + id;
+        var facility_form_url="http://35.194.42.99/geojson/form/" + id;
         $.getJSON(facility_form_url,function(arg){
           $.each(arg,function(i,data){
             // console.log(data);
